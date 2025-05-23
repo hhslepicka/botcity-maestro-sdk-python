@@ -20,7 +20,9 @@ LOGIN = os.getenv("BOTCITY_LOGIN")
 KEY = os.getenv("BOTCITY_KEY")
 ACTIVITY_LABEL_TO_LOG = f'TestCI-{uuid4()}'
 DATAPOOL_LABEL = f"testing-{uuid4()}"
+VERIFY_SSL_CERT = os.getenv("BOTCITY_VERIFY_SSL_CERT", "True").lower() in ("true", "1", "t")
 
+BotMaestroSDK.VERIFY_SSL_CERT = VERIFY_SSL_CERT
 
 @pytest.fixture
 def path_screenshot() -> str:
