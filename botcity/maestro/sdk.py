@@ -154,7 +154,7 @@ class BotMaestroSDK:
         try:
             url = f'{self._server}/api/v2/maestro/version'
 
-            with requests.get(url, verify=self.VERIFY_SSL_CERT) as req:
+            with requests.get(url, verify=self.VERIFY_SSL_CERT, timeout=self._timeout) as req:
                 req.raise_for_status()
                 self._version = req.json()['version']
         except Exception as ex:
